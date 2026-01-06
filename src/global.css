@@ -1,0 +1,31 @@
+:root {
+  /* 🎨 Cores principais (azul + roxo premium) */
+  --color-primary: #6366F1;       /* Indigo moderno */
+  --color-secondary: #4F46E5;     /* Roxo escuro elegante */
+  --color-accent: #A78BFA;        /* Lilás vibrante */
+
+  /* Neutros */
+  --color-bg: #F9FAFB;            /* Cinza quase branco */
+  --color-text-strong: #111827;   /* Cinza-azulado profundo */
+  --color-text-light: #6B7280;    /* Cinza suave */
+
+  /* Layout */
+  --layout-background: #F3F4F6;   /* Cinza claro */
+  --layout-card: #FFFFFF;         
+  --layout-title: #111827;
+  --layout-subtitle: #4B5563;
+
+  /* Navegação */
+  --nav-background: #FFFFFF;
+  --nav-link: #6366F1;            /* Indigo */
+  --nav-link-hover: #4F46E5;
+
+  /* Botões */
+  --btn-primary: #6366F1;
+  --btn-primary-hover: #4F46E5;
+  --btn-secondary-border: #6366F1;
+
+  /* Rodapé */
+  --footer-background: #1F2937;   /* Cinza carvão */
+  --footer-text: #E5E7EB;         /* Cinza muito claro */
+}

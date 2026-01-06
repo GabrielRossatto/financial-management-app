@@ -1,0 +1,72 @@
+.navbar {
+  height: 64px;
+  background-color: #0f172a; /* azul escuro */
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.logo {
+  height: 36px;
+  margin-right: 48px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  position: relative;
+}
+
+.item button {
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.item button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.submenu {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  background-color: #020617;
+  border-radius: 8px;
+  min-width: 200px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  padding: 8px 0;
+  z-index: 1
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a,
+.submenu li span {
+  display: block;
+  padding: 10px 16px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submenu li a:hover,
+.submenu li span:hover {
+  background-color: rgba(255,255,255,0.08);
+}

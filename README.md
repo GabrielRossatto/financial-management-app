@@ -1,2 +1,3 @@
-# financial-management-app
-Frontend of a financial management SaaS built with React.
+Financial Management App
+
+SaaS financial management application built with React.

@@ -1,0 +1,21 @@
+
+
+.wrapper_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    background-color: #f8fafc;
+  
+}
+
+
+.wrapper_button {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+  background-color: #333;
+}

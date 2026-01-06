@@ -1,0 +1,22 @@
+.button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #1d4ed8;
+}
+
+.cancelar {
+  background-color: #9ca3af; /* cinza */
+}
+
+.cancelar:hover {
+  background-color: #6b7280;
+}
