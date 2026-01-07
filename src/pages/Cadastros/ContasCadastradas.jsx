@@ -64,6 +64,7 @@ export function ContasCadastradas() {
                 console.log(data);
                 setIsModalOpen(false);
                 }}
+                submitLabel="Salvar"
                 onCancel={() => setIsModalOpen(false)}
                 variant="modal"
             />

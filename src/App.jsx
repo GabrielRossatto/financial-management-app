@@ -6,7 +6,7 @@ import { ContasCadastradas } from './pages/Cadastros/ContasCadastradas';
 import { MeioDePagamento } from './pages/Cadastros/MeioDePagamento';
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { DefaultLayout } from "./layouts/DefaultLayout";
-
+import { CadastroUser } from "./pages/CadastroUser/CadastroUser";
 
 function App() {
   return (
@@ -16,7 +16,8 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />    
+        <Route path="/cadastroUser" element={<CadastroUser />} />
 
         <Route element={<DefaultLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />

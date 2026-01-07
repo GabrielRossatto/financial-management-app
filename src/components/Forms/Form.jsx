@@ -8,7 +8,7 @@ import { CancelButton } from '../Buttons/CancelButton'
 import { SaveButton } from '../Buttons/SaveButton'
 
 
-export function Form({ fields, onSubmit, onCancel, submitLabel, showCancel = true, variant  }) {
+export function Form({ fields, onSubmit, onCancel, submitLabel, submitLabelCancel, showCancel = true, variant, defaultValues = {}  }) {
   const {
     register,
     control,
@@ -16,17 +16,15 @@ export function Form({ fields, onSubmit, onCancel, submitLabel, showCancel = tru
     watch,
     formState: { errors },
   
-  } = useForm({
-    defaultValues:  {
-      valorDebitado: []
-    }
-  })
+  } = useForm( defaultValues )
 
   const bodyFields = fields.filter(f => !f.position)
   const footerFields = fields.filter(f => f.position === 'footer')
 
-  const valorDebitado = watch('valorDebitado')
-
+  const valorDebitado = Array.isArray(watch('valorDebitado'))
+    ? watch('valorDebitado')
+    : []
+    
   return (
     <form
         className={`
@@ -171,11 +169,11 @@ export function Form({ fields, onSubmit, onCancel, submitLabel, showCancel = tru
 
 
         {showCancel && (
-        <CancelButton
-          onClick={onCancel}
+        <CancelButton onClick={onCancel}>
+          
+          {submitLabelCancel}
         
-        
-        /> )}
+         </CancelButton> )}
 
       </div>
     </form>

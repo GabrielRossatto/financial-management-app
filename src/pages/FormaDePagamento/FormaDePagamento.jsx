@@ -2,12 +2,12 @@
 import styles from './FormaDePagamento.module.css'
 import { Form } from '../../components/Forms/Form'
 import { formaDePagamentoFields } from './formConfig'
-
+import { useNavigate } from 'react-router-dom'
 
 
 export function FormaDePagamento() {
 
-
+  const navigate = useNavigate()
   function handleSubmit(data) {
     console.log(data)
 
@@ -24,6 +24,10 @@ export function FormaDePagamento() {
       
       <Form
         fields={formaDePagamentoFields}
+        defaultValues={{valorDebitado: []}}
+        submitLabel="Salvar"
+        submitLabelCancel="Voltar"
+        onCancel={() => navigate('/meioDepagamento')}
         onSubmit={handleSubmit}
       />
     </div>

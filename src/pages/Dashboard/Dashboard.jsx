@@ -1,5 +1,6 @@
 import { lancamentos } from './Dashconfig'
 import styles from './Dashboard.module.css'
+import { isCurrency } from '../../components/utils/Currency/isCurrency'
 
 export function Dashboard( ) {
     return (
@@ -37,7 +38,7 @@ export function Dashboard( ) {
                         <tr key={i.id}>
                             <td>{i.id}</td>
                             <td>{i.tipo}</td>
-                            <td>{i.valor}</td>
+                            <td>{isCurrency(i.valor)}</td>
                             <td>{i.data}</td>
                             <td>{i.descricao}</td>
                             <td>{i.conta}</td>
