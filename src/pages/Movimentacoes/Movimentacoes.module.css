@@ -1,0 +1,42 @@
+.pageContainer {
+  max-width: 1200px;   
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+
+
+.wrapper_title {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.badgeEntrada {
+  background-color: #e6f4ea;
+  color: #1e7f43;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.badgeSaida {
+  background-color: #fdecea;
+  color: #b42318;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+
+.btnPrimary {
+  margin-left: 2rem;
+}

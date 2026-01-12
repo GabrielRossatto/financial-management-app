@@ -13,10 +13,26 @@
   background-color: #1d4ed8;
 }
 
-.cancelar {
-  background-color: #9ca3af; /* cinza */
+.closeButton {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #334155;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease;
 }
 
-.cancelar:hover {
-  background-color: #6b7280;
-}

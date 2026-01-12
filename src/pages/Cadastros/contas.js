@@ -8,13 +8,22 @@ export const columns = (onMovimentar) => [
     label: 'Saldo Inicial',
     render: (row) => isCurrency(row.saldo)
   },
+  
+  {
+      key: 'saldoAtual',
+      label: 'Saldo Atual',
+      render: (row) => isCurrency(row.saldoAtual)
+
+
+
+  },
+
   {
     key: 'acoes',
     label: 'Ações',
     render: (conta) => (
-      <button onClick={() => onMovimentar(conta)}>
-        Movimentar
-      </button>
+      <button onClick={() => onMovimentar(conta)}>Movimentar</button>
+
     ),
   },
 ];

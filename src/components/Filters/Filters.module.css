@@ -1,0 +1,89 @@
+.bar {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #111;
+  background: #f3f4f6;
+  border: 1px solid #ececec;
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  height: 38px;
+  min-width: 170px;
+  max-width: 220px;
+  width: 100%;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 0 12px;
+  background: #fff;
+  outline: none;
+
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #111;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.btn {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btnGhost {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #dedede;
+  background: #fff;
+  color: #111;
+  font-weight: 800;
+  cursor: pointer;
+}

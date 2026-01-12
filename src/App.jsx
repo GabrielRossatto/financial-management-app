@@ -7,6 +7,8 @@ import { MeioDePagamento } from './pages/Cadastros/MeioDePagamento';
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { CadastroUser } from "./pages/CadastroUser/CadastroUser";
+import { Movimentacoes } from "./pages/Movimentacoes/Movimentacoes";
+import { Home } from "./pages/Home/Home";
 
 function App() {
   return (
@@ -20,11 +22,13 @@ function App() {
         <Route path="/cadastroUser" element={<CadastroUser />} />
 
         <Route element={<DefaultLayout />}>
+          <Route path="/home" element={<Home/>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contasBancarias" element={<ContasBancarias />} />
           <Route path="/formaDePagamento" element={<FormaDePagamento />} />
           <Route path="/contasCadastradas" element={<ContasCadastradas />} />
           <Route path="/meioDePagamento" element={<MeioDePagamento />} />
+          <Route path="/movimentacoes" element={<Movimentacoes />} />
         </Route>
 
       </Routes>

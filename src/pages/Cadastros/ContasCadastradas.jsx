@@ -1,35 +1,19 @@
-import { useState } from 'react';
-import styles from './ContasCadastradas.module.css';
-import { ButtonLink } from '../../components/Buttons/ButtonLink';
-import { Table } from '../../components/Tables/Tables';
-import { columns } from './contas';
-import { Modal } from '../../components/Modal/Modal';
-import { fieldsMovimentacao } from './fieldsMovimentacao';
-import { Form } from '../../components/Forms/Form'
-import { isCurrency } from '../../components/utils/Currency/isCurrency';
+import { useNavigate } from "react-router-dom";
+import styles from "./ContasCadastradas.module.css";
+import { ButtonLink } from "../../components/Buttons/ButtonLink";
+import { Table } from "../../components/Tables/Tables";
+import { columns } from "./contas";
 
 const contas = [
-  {
-    id: 1,
-    nome: "Santander",
-    dataCriacao: '21-10-2025',
-    saldo: 2000
-  }
+  { id: 1, nome: "Santander", dataCriacao: "21-10-2025", saldo: 2000 },
+  { id: 2, nome: "Nubank", dataCriacao: "10-11-2025", saldo: 500 },
 ];
 
 export function ContasCadastradas() {
-        
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedConta, setSelectedConta] = useState(null);
+  const navigate = useNavigate();
 
-  const handleMovimentar = (conta) => {
-    setSelectedConta(conta);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedConta(null);
+  const onMovimentar = (conta) => {
+    navigate(`/movimentacoes?contaId=${conta.id}`);
   };
 
   return (
@@ -37,40 +21,12 @@ export function ContasCadastradas() {
       <div className={styles.wrapper_title}>
         <h1>Lista de Contas Bancárias Cadastradas</h1>
 
-        <Table
-          columns={columns(handleMovimentar)}
-          data={contas}
-        />
+        <Table columns={columns(onMovimentar)} data={contas} />
       </div>
 
       <div className={styles.wrapper_button}>
-        <ButtonLink to="/contasBancarias">
-          Cadastrar Conta
-        </ButtonLink>
+        <ButtonLink to="/contasBancarias">Cadastrar Conta</ButtonLink>
       </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        title="Movimentações"
-      >
-        {selectedConta && (
-          <>
-            <p><strong>Conta:</strong> {selectedConta.nome}</p>
-            <p><strong>Saldo atual:</strong> {isCurrency(selectedConta.saldo)}</p>
-            <Form
-                fields={fieldsMovimentacao}
-                onSubmit={(data) => {
-                console.log(data);
-                setIsModalOpen(false);
-                }}
-                submitLabel="Salvar"
-                onCancel={() => setIsModalOpen(false)}
-                variant="modal"
-            />
-          </>
-        )}
-      </Modal>
     </>
   );
 }

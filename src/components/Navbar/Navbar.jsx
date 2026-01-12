@@ -1,50 +1,31 @@
-import logo from "../../assets/logo.jpg"
-import { useState } from "react";
-import styles from './styles.module.css';
-import { Link } from "react-router-dom";
-import { menu } from './menuConfig'
-
+import logo from "../../assets/logo.png";
+import styles from "./Navbar.module.css";
+import { Link, useLocation } from "react-router-dom";
+import { menu } from "./menuConfig";
 
 export function Navbar() {
+  const location = useLocation();
 
-    const [openMenu, setOpenMenu] = useState(null);
-
-    function toggleMenu(label) {
-        setOpenMenu(prev => (prev === label ? null : label));
-    }
-
-    return (
-    
+  return (
     <nav className={styles.navbar}>
       <img className={styles.logo} src={logo} alt="Logo" />
 
       <ul className={styles.list}>
-        {menu.map(section => (
-          <li key={section.label} className={styles.item}>
-            <button
-              type="button"
-              onClick={() => toggleMenu(section.label)}
+        {menu.map((item) => (
+          <li key={item.label} className={styles.item}>
+            <Link
+              to={item.path}
+              className={
+                location.pathname === item.path
+                  ? styles.active
+                  : undefined
+              }
             >
-              {section.label} ▾
-            </button>
-
-            {openMenu === section.label && (
-              <ul className={styles.submenu}>
-                {section.items.map(item => (
-                  <li key={item.label}>
-                    {item.path ? (
-                      <Link to={item.path}>{item.label}</Link>
-                    ) : (
-                      <span>{item.label}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>
     </nav>
-  )
+  );
 }
-    
