@@ -41,7 +41,7 @@ export const movimentacaoFields = [
   {
     name: "valor",
     label: "Valor",
-    type: "number",
+    type: "currency",
     placeholder: "0,00",
     required: true,
   },

@@ -16,13 +16,20 @@ function getFieldKind(field) {
 function buildRules(field) {
   const rules = {};
   if (field.required) rules.required = "Campo obrigatório";
-  if (field.format === "currency") rules.validate = greaterThanZero;
+
+  // ✅ suporte aos 2 jeitos (legado e novo)
+  const isCurrency = field.format === "currency" || field.type === "currency";
+  if (isCurrency) rules.validate = greaterThanZero;
+
   return rules;
 }
 
 function TextLikeField({ field, control, defaultValues }) {
-  const isDate = getFieldKind(field) === "date";
-  const isCurrency = field.format === "currency";
+  const kind = getFieldKind(field);
+
+  const isDate = kind === "date";
+  // ✅ suporte aos 2 jeitos (legado e novo)
+  const isCurrency = field.format === "currency" || field.type === "currency";
 
   return (
     <Controller
@@ -32,11 +39,17 @@ function TextLikeField({ field, control, defaultValues }) {
       rules={buildRules(field)}
       render={({ field: rhf }) => (
         <input
+          // ✅ moeda precisa ser text pra renderizar "R$ 1.234,56"
           type={isDate ? "date" : "text"}
           placeholder={field.placeholder}
+          // ✅ (opcional mas ajuda muito no celular)
+          inputMode={isCurrency ? "decimal" : undefined}
           value={isCurrency ? formatCurrency(rhf.value) : rhf.value || ""}
           onChange={(e) => {
             const raw = e.target.value;
+
+            // ✅ aqui é onde você "renderiza direto no input":
+            // o input mostra formatado, mas o RHF guarda o valor parseado
             rhf.onChange(isCurrency ? parseCurrency(raw) : raw);
           }}
         />
@@ -105,6 +118,7 @@ function FieldRenderer({ field, register, control, defaultValues }) {
   if (kind === "select") return <SelectField field={field} control={control} defaultValues={defaultValues} />;
   if (kind === "checkbox") return <CheckboxField field={field} register={register} defaultValues={defaultValues} />;
 
+  // ✅ mantém estrutura e CSS: continua caindo no mesmo input
   return <TextLikeField field={field} control={control} defaultValues={defaultValues} />;
 }
 
@@ -137,10 +151,9 @@ export function Form({
       className={`${styles.formContainer} ${variant === "modal" ? styles.formInModal : ""}`}
       onSubmit={handleSubmit(onSubmit)}
     >
-   
       {bodyFields.map((field) => {
         const kind = getFieldKind(field);
-        const showLabel = kind !== "checkbox"; 
+        const showLabel = kind !== "checkbox";
 
         return (
           <div key={field.name} className={styles.formGroup}>
@@ -203,6 +216,7 @@ export function Form({
                   <input
                     type="text"
                     placeholder="R$"
+                    inputMode="decimal"
                     value={formatCurrency(rhf.value)}
                     onChange={(e) => rhf.onChange(parseCurrency(e.target.value))}
                   />

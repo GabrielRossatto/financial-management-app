@@ -7,6 +7,7 @@ import { Modal } from "../../components/Modal/Modal";
 import { Form } from "../../components/Forms/Form";
 import { movimentacaoFields } from "./movimentacoesForm";
 
+
 // mock só pra demonstrar o filtro
 const movimentacoesMock = [
   { id: 1, contaId: 1, data: "2026-01-05", descricao: "Cliente", tipo: "entrada", valor: 2500 },
@@ -79,6 +80,7 @@ export function Movimentacoes() {
           <Form
             fields={movimentacaoFields}
             onSubmit={handleSubmit}
+            onCancel={() => navigate('/contasCadastradas')}
           />
         </Modal>
       )}
